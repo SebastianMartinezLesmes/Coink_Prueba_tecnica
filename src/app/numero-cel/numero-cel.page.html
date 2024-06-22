@@ -1,12 +1,72 @@
 <ion-content>
   <ion-header id="header_page3">
-    <ion-icon name="chevron-back-outline"></ion-icon>
+    <ion-icon name="chevron-back-outline" (click)="volver()"></ion-icon>
     <div>
       <h4>NÚMERO DE CELULAR</h4>
       <img src="../../assets/bar_progres.svg" alt="">
     </div>
-</ion-header>
-  <div id="page3">
+  </ion-header>
 
+  <div id="page3">
+    <ion-item id="arriba">
+      <img src="../../assets/Oink.svg" alt="">
+      <div>
+        <h3>Para comenzar, por favor igresa <b>tu número celular.</b></h3>
+      </div>
+    </ion-item>
+
+    <ion-card id="numero_cel">
+      <ion-label *ngIf="!input">(XXX - XXXXXX)</ion-label>
+      <ion-label *ngIf="input">{{ formatNumber( input ) }}</ion-label>
+    </ion-card>
+
+    <ion-card>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(1)">1</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(2)">2</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(3)">3</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(4)">4</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(5)">5</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(6)">6</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(7)">7</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(8)">8</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(9)">9</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-icon name="backspace-outline" (click)="deleteNumber()" id="borrar"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-button expand="block" (click)="addNumber(0)">0</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="checkmark-outline" (click)="confirmNumber()" id="comprobar"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
   </div>
 </ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-info',
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router,
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   // Pagina 4
   Tipo_doc: string = '';
@@ -72,5 +74,9 @@ export class InfoPage implements OnInit {
       PIN: this.PIN
     };
     console.log(datos);
+  }
+
+  volver(){
+    this.router.navigate(['./numero-cel'])
   }
 }

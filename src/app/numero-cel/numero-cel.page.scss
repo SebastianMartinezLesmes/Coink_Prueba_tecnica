@@ -1,0 +1,72 @@
+#header_page3{
+    display: flex;
+    ion-icon{
+        color: #1EEA00;
+        align-items: center;
+        width: 5%;
+        height: auto;
+        margin-top: 2%;
+    }
+    div{
+        width: 90%;
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        h1{
+            color: #004B40;
+            font-weight: bold;
+        }
+        img{
+            height: 30%;
+        }
+    }
+}
+#numero_cel{
+    padding: 5%;
+    height: 20%;
+    text-align: center;
+    ion-label{
+        font-size: 7vw;
+    }
+}
+
+ion-grid {
+    text-align: center;
+    padding: 20px;
+}
+
+ion-row {
+    justify-content: center;
+}
+
+ion-button {
+    height: 70px;
+    width: 70px;
+    font-size: 6vw;
+    font-weight: bold;
+    margin: 10px;
+    --background: trasnsparent;
+    color: #004B40;
+}
+
+#borrar{
+    height: 50px;
+    width: 50px;
+    font-size: 4vw;
+    font-weight: bold;
+    margin: 10px;
+    color: #004B40;
+}
+
+#comprobar{
+    height: 50px;
+    width: 50px;
+    font-size: 4vw;
+    font-weight: bold;
+    margin: 10px;
+    background: #1EEA00;
+    color: white;
+    border-radius: 50%;
+}
