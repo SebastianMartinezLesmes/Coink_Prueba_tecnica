@@ -19,48 +19,79 @@
   </div>
 </ion-content>
 
+<ion-content *ngIf="window === 'info'">
+  <div id="page3">
+
+  </div>
+</ion-content>
+
 <ion-content *ngIf="window === 'registrate'">
-  <ion-header id="header_page3">
-    <ion-toolbar>
+  <ion-header id="header_page4">
       <ion-icon name="chevron-back-outline"></ion-icon>
       <div>
         <h1>NÚMERO DE CELULAR</h1>
-        <img src="../../assets/bar_progres.svg" alt="">
+        <img src="../../assets/bar_progres(2).svg" alt="">
       </div>
-    </ion-toolbar>
   </ion-header>
   
-  <div id="page3">
-    <img src="../../assets/Oink.svg" alt="">
-    <div>
-      <h2>¿CUÁLES SON TUS DATOS?</h2>
-      <span>Ahora necesitamos saber algunos datos tuyos</span>
-    </div>
+  <div id="page4">
+    <ion-item>
+      <img src="../../assets/Oink.svg" alt="">
+      <div>
+        <h2>¿CUÁLES SON TUS DATOS?</h2>
+        <h5>Ahora necesitamos saber algunos datos tuyos</h5>
+      </div>
+    </ion-item>
     <div id="line"></div>
     <h1>Documento de identidad</h1>
-    <!-- <ion-item>
     <ion-item>
-      <ion-label position="floating">Número de documento</ion-label>
-      <ion-input formControlName="numero_documento"></ion-input>
+      <ion-select label="Tipo Documento" label-placement="floating">
+        <ion-select-option value="TI">Tarjeta de Identidad</ion-select-option>
+        <ion-select-option value="CC">Cédula de Ciudadanía</ion-select-option>
+        <ion-select-option value="CE">Cédula de Estrangería</ion-select-option>
+      </ion-select>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Número de documento</ion-label>
-      <ion-input formControlName="numero_documento"></ion-input>
+      <ion-input type="number"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Fecha de expedición del documento</ion-label>
-      <ion-input type="date" formControlName="fecha_expedicion"></ion-input>
+      <ion-input type="date"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Fecha de nacimiento</ion-label>
-      <ion-input type="date" formControlName="fecha_nacimiento"></ion-input>
+      <ion-input type="date"></ion-input>
     </ion-item>
     <ion-item>
       <ion-select label="Genero" label-placement="floating">
-        <ion-select-option value="apple">Apple</ion-select-option>
-        <ion-select-option value="banana">Banana</ion-select-option>
-        <ion-select-option value="orange">Orange</ion-select-option>
+        <ion-select-option value="femenino">Femenino</ion-select-option>
+        <ion-select-option value="masculino">Masculino</ion-select-option>
       </ion-select>
-    </ion-item> -->
+    </ion-item>
+    
+    <h1>Configura tu cuenta</h1>
+    <ion-item>
+      <ion-label position="floating">Correo electrónico</ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Confirmar correo electrónico</ion-label>
+      <ion-input type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">PIN de seguridad</ion-label>
+      <ion-input type="number">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Confirmar PIN de seguridad</ion-label>
+      <ion-input type="number">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
+
+    <ion-button>SIGUIENTE</ion-button>
   </div>
 </ion-content>
