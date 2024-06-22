@@ -1,0 +1,74 @@
+<ion-content>
+  <ion-header id="header_page4">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+      <div>
+        <h1>DATOS CUENTA</h1>
+        <img src="../../assets/bar_progres(2).svg" alt="">
+      </div>
+  </ion-header>
+  
+  <div id="page4">
+    <ion-item id="arriba">
+      <img src="../../assets/Oink.svg" alt="">
+      <div>
+        <h4>¿CUÁLES SON TUS DATOS?</h4>
+        <h3>Ahora necesitamos saber algunos datos tuyos</h3>
+      </div>
+    </ion-item>
+    <div id="line"></div>
+    <div>
+      <h4>Documento de identidad</h4>
+      <ion-item>
+        <ion-select label="Tipo Documento" label-placement="floating" [(ngModel)]="Tipo_doc">
+          <ion-select-option value="TI">Tarjeta de Identidad</ion-select-option>
+          <ion-select-option value="CC">Cédula de Ciudadanía</ion-select-option>
+          <ion-select-option value="CE">Cédula de Extranjería</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Número de documento</ion-label>
+        <ion-input type="number" [(ngModel)]="numero_doc"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Fecha de expedición del documento</ion-label>
+        <ion-input type="date" [(ngModel)]="fecha_expedicion_doc"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Fecha de nacimiento</ion-label>
+        <ion-input type="date" [(ngModel)]="fecha_nacimiento"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select label="Género" label-placement="floating" [(ngModel)]="genero">
+          <ion-select-option value="femenino">Femenino</ion-select-option>
+          <ion-select-option value="masculino">Masculino</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+      <h4>Configura tu cuenta</h4>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirmar correo electrónico</ion-label>
+        <ion-input type="email" [(ngModel)]="confirm_email"></ion-input>
+      </ion-item>
+      <ion-label class="error" *ngIf="error_confir_email">Este campo no coincide con el correo</ion-label>
+      <ion-item>
+        <ion-label position="floating">PIN de seguridad</ion-label>
+        <ion-input type="number" [(ngModel)]="PIN"></ion-input>
+        <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirmar PIN de seguridad</ion-label>
+        <ion-input type="number" [(ngModel)]="confir_PIN"></ion-input>
+        <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+      </ion-item>
+      <ion-label class="error" *ngIf="error_confir_PIN">Este campo no coincide con el PIN</ion-label>
+
+      <div id="boton">
+        <ion-button (click)="enviarDatos()">SIGUIENTE</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

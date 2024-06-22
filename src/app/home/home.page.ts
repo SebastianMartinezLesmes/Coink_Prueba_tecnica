@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,17 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private router:Router
+  ) {}
 
-  window: string = 'start';
-
-  // Mover a pagina 2
-  loadForLogin() {
-    this.window = 'login'
-  }
-  
-  // Mover a pagina 3
-  ChangeToRegister() {
-    this.window = 'registrate'
-  }
+    // Mover a pagina 2
+    loadForLogin() {
+      this.router.navigate(['./ingreso']);
+    }
 }

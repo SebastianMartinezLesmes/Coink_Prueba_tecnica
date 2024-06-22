@@ -1,0 +1,52 @@
+// pagina 2 ----->
+#page2{
+    width: 100%;
+    height: 100%;
+    #up{
+        height: 70%;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        ion-img{
+            width: 30vw;
+        }
+        h1 {
+            width: 60%;
+            color: #1EEA00;
+            font-size: 3vw; 
+            font-weight: bold; 
+        }    
+        ion-img{
+            width: 30%;
+        }
+    }
+    #down{
+        height: 30%;
+        width: 100%;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    
+        ion-button{
+            height: 25%;
+            width: 65%;
+            font-size: 2vw; 
+            font-weight: bold;
+            --border-radius: 30px;
+        }
+        
+        #registrate{
+            --background: #1EEA00;
+            color: #004B40;
+        }
+        #ingresa{
+            --background: #004B40;
+            color: white;
+        }
+    }
+}
