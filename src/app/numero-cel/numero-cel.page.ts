@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-numero-cel',
@@ -10,8 +10,9 @@ import { LoadingController } from '@ionic/angular';
 export class NumeroCelPage implements OnInit {
 
   constructor(
-    private router:Router,
+    private router: Router,
     private loadingController: LoadingController,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -46,21 +47,32 @@ export class NumeroCelPage implements OnInit {
     }
   }
 
-  confirmNumber() {
-    if (!this.input){
-      console.log('No se ha ingresado ningun numero');
-      return
-    } else if (this.input.length <= 6) {
-      console.log('Número muy pequeño');
-      return;
-    }
-    console.log('Número ingresado:', this.input);
-    localStorage.setItem('inputNumber', this.input);
-    this.presentLoading('./info')
+  async presentAlert(message: string) {
+    const alert = await this.alertController.create({
+      header: 'Error en el número de celular',
+      message: message,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
-  volver(){
-    this.presentLoading('./ingreso')
+  confirmNumber() {
+    if (!this.input) {
+      this.presentAlert('No se ha ingresado ningún número.');
+      return;
+    } else if (this.input.length < 7) {
+      this.presentAlert('El número de celular debe tener al menos 7 dígitos.');
+      return;
+    }
+    
+    console.log('Número ingresado:', this.input);
+    localStorage.setItem('inputNumber', this.input);
+    this.presentLoading('./info');
+  }
+
+  volver() {
+    this.presentLoading('./ingreso');
   }
 
 }

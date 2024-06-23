@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-finalizar',
@@ -9,15 +9,16 @@ import { LoadingController } from '@ionic/angular';
 })
 export class FinalizarPage implements OnInit {
 
+  checked: boolean = false;
+
   constructor(
     private router: Router,
     private loadingController: LoadingController,
+    private alertController: AlertController,
   ) { }
 
   ngOnInit() {
   }
-
-  checked: boolean = false;
 
   async presentLoading(route: string) {
     const loading = await this.loadingController.create({
@@ -30,6 +31,16 @@ export class FinalizarPage implements OnInit {
     this.router.navigate([route]);
   }
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Aceptar Términos',
+      message: 'Debes aceptar los términos antes de proceder.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
   volver() {
     this.presentLoading('./info');
   }
@@ -40,10 +51,11 @@ export class FinalizarPage implements OnInit {
 
   finishProces() {
     if (this.checked === false) {
-      console.log('Aun no se han aceptado los terminos')
+      this.presentAlert(); 
       return;
     }
-    console.log('Se han aceptado los terminos')
+
+    console.log('Se han aceptado los términos');
     this.presentLoading('./cuenta-creada');
   }
 }

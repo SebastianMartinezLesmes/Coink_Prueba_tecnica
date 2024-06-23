@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-info',
@@ -13,6 +13,7 @@ export class InfoPage implements OnInit {
   constructor(
     private router:Router,
     private loadingController: LoadingController,
+    private alertController: AlertController,
     private http:HttpClient,
   ) { }
 
@@ -44,6 +45,31 @@ export class InfoPage implements OnInit {
 
     const { role, data } = await loading.onDidDismiss();
     this.router.navigate([route]);
+  }
+
+  async presentAlert(camposVacios: string[]) {
+    let message = 'Los siguientes campos son obligatorios:\n';
+    camposVacios.forEach((campo, index) => {
+      message += `${index + 1}. ${campo}\n`;
+    });
+  
+    const alert = await this.alertController.create({
+      header: 'Campos Vacíos',
+      message: message,
+      buttons: ['OK']
+    });
+  
+    await alert.present();
+  }  
+
+  async presentEmailFormatAlert() {
+    const alert = await this.alertController.create({
+      header: 'Formato de Email Incorrecto',
+      message: 'Por favor, introduce un correo electrónico válido.',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
   async getTipoDocumentos() {
@@ -82,10 +108,30 @@ export class InfoPage implements OnInit {
   }
 
   enviarDatos() {
-    if (this.camposVacios() === true){
-      console.log('Existen campos vacios')
+    if (this.camposVacios()) {
+      const camposFaltantes = [];
+      if (!this.Tipo_doc) camposFaltantes.push('Tipo de documento');
+      if (!this.numero_doc) camposFaltantes.push('Número de documento');
+      if (!this.fecha_expedicion_doc) camposFaltantes.push('Fecha de expedición del documento');
+      if (!this.fecha_nacimiento) camposFaltantes.push('Fecha de nacimiento');
+      if (!this.genero) camposFaltantes.push('Género');
+      if (!this.email) camposFaltantes.push('Email');
+      if (!this.confirm_email) camposFaltantes.push('Confirmación de email');
+      if (!this.PIN) camposFaltantes.push('PIN');
+      if (!this.confir_PIN) camposFaltantes.push('Confirmación de PIN');
+    
+      this.presentAlert(camposFaltantes);
       return;
     }
+    
+    // Validación del formato de email
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(this.email)) {
+      this.presentEmailFormatAlert();
+      console.error('El formato del email no es válido.');
+      return;
+    }
+    
     if (this.email !== this.confirm_email) {
       this.error_confir_email = true;
       setTimeout(() => {
@@ -94,6 +140,7 @@ export class InfoPage implements OnInit {
       console.error('Los correos electrónicos no coinciden.');
       return;
     }
+    
     if (this.PIN !== this.confir_PIN) {
       this.error_confir_PIN = true;
       setTimeout(() => {
@@ -102,6 +149,7 @@ export class InfoPage implements OnInit {
       console.error('Los PIN no coinciden.');
       return;
     }
+    
     this.recuperarNumeroDocumento();
     const datos = {
       Tipo_doc: this.Tipo_doc,
@@ -111,11 +159,12 @@ export class InfoPage implements OnInit {
       genero: this.genero,
       email: this.email,
       PIN: this.PIN,
-      número_celular: this.numero_cel,
+      numero_celular: this.numero_cel,
     };
     console.log(datos);
     this.presentLoading('./finalizar');
   }
+  
 
   volver(){
     this.presentLoading('./numero-cel');
