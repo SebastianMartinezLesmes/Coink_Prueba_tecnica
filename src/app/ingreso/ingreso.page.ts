@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-ingreso',
@@ -9,14 +10,25 @@ import { Router } from '@angular/router';
 export class IngresoPage implements OnInit {
 
   constructor(
-    private router:Router
+    private router:Router,
+    private loadingController: LoadingController,
   ) { }
 
   ngOnInit() {
   }
 
-  // Mover a pagina 3
+  async presentLoading(route: string) {
+    const loading = await this.loadingController.create({
+      message: 'Cargando, por favor espera...',
+      duration: 3000 // 3 segundos
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    this.router.navigate([route]);
+  }
+
   ChangeToRegister() {
-    this.router.navigate(['./numero-cel']);
+    this.presentLoading('./numero-cel');
   }
 }

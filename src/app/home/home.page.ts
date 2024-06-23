@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,28 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   constructor(
-    private router:Router
+    private router:Router,
+    private loadingController: LoadingController,
   ) {}
 
-    // Mover a pagina 2
-    loadForLogin() {
-      this.router.navigate(['./ingreso']);
-    }
+  ngOnInit() {
+    setTimeout(() => {
+      this.loadForLogin();
+    }, 3000); // 3 segundos
+  }
+
+  async presentLoading(route: string) {
+    const loading = await this.loadingController.create({
+      message: 'Iniciando, por favor espere...',
+      duration: 5000, // 5 segundos
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    this.router.navigate([route]);
+  }
+
+  loadForLogin() {
+    this.presentLoading('./ingreso');
+  }
 }

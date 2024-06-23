@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-finalizar',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 export class FinalizarPage implements OnInit {
 
   constructor(
-    private router:Router
+    private router: Router,
+    private loadingController: LoadingController,
   ) { }
 
   ngOnInit() {
@@ -17,19 +19,31 @@ export class FinalizarPage implements OnInit {
 
   checked: boolean = false;
 
-  volver(){
-    this.router.navigate(['./info']);
+  async presentLoading(route: string) {
+    const loading = await this.loadingController.create({
+      message: 'Cargando, por favor espera...',
+      duration: 3000 // 3 segundos
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    this.router.navigate([route]);
   }
+
+  volver() {
+    this.presentLoading('./info');
+  }
+
   toggleChecked(event: any) {
     this.checked = event.detail.checked;
   }
 
-  finishProces(){
-    if(this.checked === false){
+  finishProces() {
+    if (this.checked === false) {
       console.log('Aun no se han aceptado los terminos')
       return;
     }
     console.log('Se han aceptado los terminos')
-    this.router.navigate(['./cuenta-creada'])
+    this.presentLoading('./cuenta-creada');
   }
 }

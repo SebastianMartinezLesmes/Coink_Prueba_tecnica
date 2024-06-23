@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-numero-cel',
@@ -10,12 +11,24 @@ export class NumeroCelPage implements OnInit {
 
   constructor(
     private router:Router,
+    private loadingController: LoadingController,
   ) { }
 
   ngOnInit() {
   }
 
   input: string = '';
+
+  async presentLoading(route: string) {
+    const loading = await this.loadingController.create({
+      message: 'Cargando, por favor espera...',
+      duration: 3000 // 3 segundos
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    this.router.navigate([route]);
+  }
 
   addNumber(num: number) {
     this.input += num;
@@ -43,11 +56,11 @@ export class NumeroCelPage implements OnInit {
     }
     console.log('Número ingresado:', this.input);
     localStorage.setItem('inputNumber', this.input);
-    this.router.navigate(['./info'])
+    this.presentLoading('./info')
   }
 
   volver(){
-    this.router.navigate(['./ingreso'])
+    this.presentLoading('./ingreso')
   }
 
 }
