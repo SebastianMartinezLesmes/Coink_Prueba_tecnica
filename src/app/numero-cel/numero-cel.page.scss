@@ -1,80 +1,96 @@
-#header_page3{
+#header_page3 {
     display: flex;
-    ion-icon{
-        color: #1EEA00;
-        align-items: center;
-        width: 5%;
-        height: auto;
-        margin-top: 2%;
+    align-items: center;
+    padding: 10px;
+    ion-icon {
+      color: #1EEA00;
+      margin-right: 10px;
+      font-size: 6vw;
     }
-    div{
-        width: 90%;
-        padding: 5%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        h4{
-            color: #004B40;
-            font-weight: bold;
-        }
-        img{
-            height: 30%;
-        }
+    div {
+      flex: 1;
+      text-align: center;
+      h4 {
+        color: #004B40;
+        font-weight: bold;
+        margin: 0;
+        font-size: 4vw;
+      }
+      img {
+        height: 20px;
+        margin-top: 10px;
+      }
     }
-}
-
-#page3{
+  }
+  
+  #page3 {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  #arriba {
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: 100%;
-}
-
-#numero_cel{
-    padding: 5%;
-    text-align: center;
-    ion-label{
-        font-size: 7vw;
+    img {
+      width: 20%;
+      margin-right: 10px;
     }
-}
+    div {
+      flex: 1;
+      text-align: left;
+      h3 {
+        font-size: 4vw;
+        margin: 0;
+      }
+    }
+  }
+  
+  #numero_cel {
+    width: 100%;
+    text-align: center;
+    padding: 5%;
+    ion-label {
+      font-size: 7vw;
+    }
+  }
 
-ion-grid {
+  ion-card{
+    width: 100%;
+  }
+  
+  ion-grid {
+    width: 100%;
     text-align: center;
     padding: 20px;
-}
-
-ion-row {
-    justify-content: center;
-}
-
-ion-button {
+  }
+  
+  ion-row {
+    justify-content: space-evenly;
+  }
+  
+  ion-button {
     height: 70px;
     width: 70px;
     font-size: 6vw;
     font-weight: bold;
     margin: 10px;
-    --background: trasnsparent;
+    --background: transparent;
     color: #004B40;
-}
-
-#borrar{
+  }
+  
+  #borrar, #comprobar {
     height: 50px;
     width: 50px;
     font-size: 4vw;
-    font-weight: bold;
     margin: 10px;
-    color: #004B40;
-}
-
-#comprobar{
-    height: 50px;
-    width: 50px;
-    font-size: 4vw;
-    font-weight: bold;
-    margin: 10px;
+  }
+  
+  #comprobar {
     background: #1EEA00;
     color: white;
     border-radius: 50%;
-}
+  }
+  

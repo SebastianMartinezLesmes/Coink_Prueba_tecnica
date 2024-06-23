@@ -1,51 +1,81 @@
-// pagina 2 ----->
-#page2{
-    width: 100%;
+#page2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     height: 100%;
-    #up{
-        height: 70%;
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        text-align: center;
-        ion-img{
-            width: 30vw;
-        }
-        h1 {
-            width: 60%;
-            color: #1EEA00;
-            font-weight: bold; 
-        }    
-        ion-img{
-            width: 30%;
-        }
+    padding: 5%;
+}
+
+#up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    width: 100%;
+}
+
+#up ion-img {
+    width: 50%;
+    max-width: 200px;
+    height: auto;
+}
+
+#up h1 {
+    color: #1EEA00;
+    font-weight: bold;
+    font-size: 6vw;
+    margin: 20px 0;
+    width: 80%;
+}
+
+#down {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+#down ion-button {
+    width: 80%;
+    max-width: 300px;
+    font-size: 4vw;
+    font-weight: bold;
+    --border-radius: 30px;
+    margin: 10px 0;
+}
+
+#registrate {
+    --background: #1EEA00;
+    color: #004B40;
+}
+  
+#ingresa {
+    --background: #004B40;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    #up h1 {
+        font-size: 4vw;
     }
-    #down{
-        height: 30%;
-        width: 100%;
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-    
-        ion-button{
-            height: 25%;
-            width: 65%;
-            font-size: 2vw; 
-            font-weight: bold;
-            --border-radius: 30px;
-        }
-        
-        #registrate{
-            --background: #1EEA00;
-            color: #004B40;
-        }
-        #ingresa{
-            --background: #004B40;
-            color: white;
-        }
+
+    #down ion-button {
+        font-size: 2vw;
     }
 }
+  
+@media (min-width: 1024px) {
+    #up h1 {
+        font-size: 3vw;
+    }
+
+    #down ion-button {
+        font-size: 1.5vw;
+    }
+}
+  

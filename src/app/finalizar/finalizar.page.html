@@ -1,18 +1,17 @@
 <ion-header id="header_page5">
-    <ion-icon name="chevron-back-outline" (click)="volver()"></ion-icon>
-    <div>
-      <h1>Finalizar</h1>
-      <img src="../../assets/bar_progres(3).svg" alt="">
-    </div>
+  <ion-icon name="chevron-back-outline" (click)="volver()"></ion-icon>
+  <div>
+    <h1>Finalizar</h1>
+    <img src="../../assets/bar_progres(3).svg" alt="">
+  </div>
 </ion-header>
 <ion-content>
-  
   <div id="page5">
     <ion-item id="arriba">
       <img src="../../assets/OinkPolicia.svg" alt="">
       <div>
-        <h4>ESTAS MUY CERCA DE SER PARTE DE COINK.</h4>
-        <h6>Solo es ecesario que leas determinadamente el contrato que se encuentra al final de esta pantalla y lo aceptes</h6>
+        <h4>ESTÁS MUY CERCA DE SER PARTE DE COINK.</h4>
+        <h6>Sólo es necesario que leas detenidamente el contrato que se encuentra al final de esta pantalla y lo aceptes</h6>
       </div>
     </ion-item>
     <div id="line"></div>
@@ -21,18 +20,20 @@
       <h3>LO MÁS IMPORTANTE</h3>
       <p>Para la apertura del Depósito de Bajo Monto en COINK debes ser una persona natural que de acuerdo con nuestra legislación vigente te encuentres en plena capacidad para adquirir derechos y contraer obligaciones.</p>
       <p>Abrirás una cuenta COINK de Bajo Monto la cual te permitirá tener un saldo hasta por 8 salarios mínimos en el mes y realizar débitos por el mismo valor. Si deseas sobrepasar estos límites debes solicitarnos la apertura de un Depósito Ordinario COINK Persona Natural.</p>
-      <p>Solo puedes tener una cuenta COINK de Bajo Monto y podrás utilizar tu dispositivo móvil para consultar tu saldo, tus movimientos, realizar tus transacciones y administrar tu cuenta.</p>
+      <p>Sólo puedes tener una cuenta COINK de Bajo Monto y podrás utilizar tu dispositivo móvil para consultar tu saldo, tus movimientos, realizar tus transacciones y administrar tu cuenta.</p>
       <p>Recuerda que no necesitas saldo mínimo ni monto inicial para su apertura.</p>
+      <h4 id="consejo"><u>Lee tu contrato</u></h4>
     </div>
     <div>
-      <h4><u>Lee tu contrato</u></h4>
       <ion-item>
         <ion-checkbox slot="start" (ionChange)="toggleChecked($event)"></ion-checkbox>
         <h5>He leído y acepto el contrato</h5>
       </ion-item>
     </div>
-    <div>
-      <button (click)="finishProces()"><h2>ACEPTAR</h2></button>
+    <div id="boton">
+      <ion-button expand="block" (click)="finishProces()">
+        <h2>ACEPTAR</h2>
+      </ion-button>
     </div>
   </div>
 </ion-content>

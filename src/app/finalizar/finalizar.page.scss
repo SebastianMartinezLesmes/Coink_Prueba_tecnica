@@ -1,74 +1,105 @@
-#header_page5{
+#header_page5 {
     display: flex;
-    ion-icon{
+    align-items: center;
+    padding: 10px;
+    ion-icon {
         color: #1EEA00;
-        align-items: center;
-        width: 5%;
-        height: auto;
-        margin-top: 2%;
+        font-size: 6vw;
+        margin-right: 10px;
     }
-    div{
-        width: 90%;
-        padding: 5%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    div {
+        flex: 1;
         text-align: center;
-        h1{
+        h1 {
             color: #004B40;
             font-weight: bold;
+            font-size: 4vw;
+            margin: 0;
         }
-        img{
-            height: auto;
+        img {
+            height: 4vw;
+            margin-top: 10px;
         }
     }
 }
 
-#page5{
-    div{
-        margin-left: 5%;
-        h4{
-            color: #004B40;
-            font-weight: bold;
+#page5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+ion-item{
+    --background: transparent;
+}
+#arriba {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    img {
+        width: 20%;
+        margin-right: 10px;
+    }
+    div {
+        flex: 1;
+        text-align: left;
+        h6 {
+            font-size: 3vw;
         }
     }
-    #line{
-        height: 3px;
-        width: 90%;
-        background-color: #1EEA00;
-    }
+}
 
-    h3{
+#line {
+    height: 2px;
+    width: 100%;
+    background: #1EEA00;
+}
+
+#terminos {
+    width: 100%;
+    padding: 10px;
+    h3 {
         color: #004B40;
         font-weight: bold;
+        font-size: 4vw;
     }
+    p {
+        font-size: 3vw;
+    }
+}
 
-    #terminos{
+ion-checkbox {
+    --size: 6vw;
+    --checkbox-background-checked: #1EEA00;
+}
+
+ion-checkbox::part(container) {
+    --background: transparent;
+    border-radius: 6px;
+    border: 2px solid #1EEA00;
+}
+
+h5 {
+    color: #004B40;
+    font-size: 4vw;
+}
+
+#boton {
+    width: 100%;
+    text-align: center;
+    ion-button {
         width: 90%;
+        font-size: 4vw;
+        font-weight: bold;
+        --border-radius: 30px;
+        --background: #1EEA00;
+        color: #004B40;
+        margin-top: 5%;
     }
-
-    ion-checkbox {
-        --size: 32px;
-        --checkbox-background-checked: #1EEA00;
-    }
-    
-    ion-checkbox::part(container) {
-        border-radius: 6px;
-        border: 2px solid #1EEA00;
-    }
-
-    h5{
-        color:#004B40;
-    }
-
-    button{
-        color:#004B40;
-        background: #1EEA00;
-        border-radius: 50px;
-        width: 90%;
-        h2{
-            color: #004B40;
-            font-weight: bold;
-        }
-    }
+}
+#consejo{
+    color: #004B40;
+    font-weight: bold;
+    font-size: 4vw;
 }

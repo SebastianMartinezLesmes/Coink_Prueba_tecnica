@@ -1,14 +1,14 @@
-#page1{
+#page1 {
   background: #1EEA00;
-  width: 100% ;
+  width: 100%;
   height: 100%;
-
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
+}
 
-
-  img{
-    width: 30%;
-  }
+#page1 img {
+  max-width: 80%; 
+  height: auto; 
 }

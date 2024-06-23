@@ -1,12 +1,12 @@
 <ion-content>
   <ion-header id="header_page4">
-      <ion-icon name="chevron-back-outline" (click)="volver()"></ion-icon>
-      <div>
-        <h1>DATOS CUENTA</h1>
-        <img src="../../assets/bar_progres(2).svg" alt="">
-      </div>
+    <ion-icon name="chevron-back-outline" (click)="volver()"></ion-icon>
+    <div>
+      <h1>DATOS CUENTA</h1>
+      <img src="../../assets/bar_progres(2).svg" alt="">
+    </div>
   </ion-header>
-  
+
   <div id="page4">
     <ion-item id="arriba">
       <img src="../../assets/Oink.svg" alt="">
@@ -16,14 +16,9 @@
       </div>
     </ion-item>
     <div id="line"></div>
-    <div>
+    <div id="formulario">
       <h4>Documento de identidad</h4>
       <ion-item>
-        <!-- <ion-select label="Tipo Documento" label-placement="floating" [(ngModel)]="Tipo_doc">
-          <ion-select-option value="TI">Tarjeta de Identidad</ion-select-option>
-          <ion-select-option value="CC">Cédula de Ciudadanía</ion-select-option>
-          <ion-select-option value="CE">Cédula de Extranjería</ion-select-option>
-        </ion-select> -->
         <ion-select label="Tipo Documento" label-placement="floating" [(ngModel)]="Tipo_doc">
           <ion-select-option *ngFor="let e of lista_tipos_docs" [value]="e.notation">
             {{e.description}}
@@ -69,7 +64,7 @@
       </ion-item>
       <ion-label class="error" *ngIf="error_confir_PIN">Este campo no coincide con el PIN</ion-label>
       <div id="boton">
-        <ion-button (click)="enviarDatos()">SIGUIENTE</ion-button>
+        <ion-button expand="block" (click)="enviarDatos()">SIGUIENTE</ion-button>
       </div>
     </div>
   </div>
