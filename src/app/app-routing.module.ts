@@ -23,6 +23,14 @@ const routes: Routes = [
     path: 'numero-cel',
     loadChildren: () => import('./numero-cel/numero-cel.module').then( m => m.NumeroCelPageModule)
   },
+  {
+    path: 'cuenta-creada',
+    loadChildren: () => import('./cuenta-creada/cuenta-creada.module').then( m => m.CuentaCreadaPageModule)
+  },
+  {
+    path: 'finalizar',
+    loadChildren: () => import('./finalizar/finalizar.module').then( m => m.FinalizarPageModule)
+  },
 ];
 
 @NgModule({

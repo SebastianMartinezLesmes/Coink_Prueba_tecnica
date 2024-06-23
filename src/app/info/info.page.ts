@@ -52,7 +52,6 @@ export class InfoPage implements OnInit {
       this.numero_cel = parseInt(storedNumber, 10);
     }
   }
-  
 
   camposVacios(): boolean {
     if (!this.Tipo_doc ||
@@ -102,6 +101,7 @@ export class InfoPage implements OnInit {
       número_celular: this.numero_cel,
     };
     console.log(datos);
+    this.router.navigate(['./finalizar']);
   }
 
   volver(){

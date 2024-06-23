@@ -1,0 +1,50 @@
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: #00000033;
+}
+
+ion-card {
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-image {
+    margin-top: 20px;
+}
+
+.card-title {
+    margin: 10px 0;
+    color:#004B40;
+    font-weight: bold;
+}
+
+.card-content h3 {
+    margin: 10px 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.continue-button {
+    background-color: #32cd32;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
