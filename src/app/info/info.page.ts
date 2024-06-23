@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,12 +11,16 @@ export class InfoPage implements OnInit {
 
   constructor(
     private router:Router,
+    private http:HttpClient,
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getTipoDocumentos();
+  }
 
-  // Pagina 4
+  lista_tipos_docs: any = [];
   Tipo_doc: string = '';
+  numero_cel: number = 0;
   numero_doc: number = 0;
   fecha_expedicion_doc: string = '';
   fecha_nacimiento: string = '';
@@ -27,6 +32,27 @@ export class InfoPage implements OnInit {
   PIN: number = 0;
   confir_PIN: number = 0;
   error_confir_PIN: boolean = false;
+
+  async getTipoDocumentos() {
+    try {
+      const response = await fetch('https://api.bancoink.biz/qa/signup/documentTypes?apiKey=030106');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      this.lista_tipos_docs = await response.json();
+      console.log(this.lista_tipos_docs);
+    } catch (error) {
+      console.error('There has been a problem with your fetch operation:', error);
+    }
+  }
+
+  recuperarNumeroDocumento() {
+    const storedNumber = localStorage.getItem('inputNumber');
+    if (storedNumber) {
+      this.numero_cel = parseInt(storedNumber, 10);
+    }
+  }
+  
 
   camposVacios(): boolean {
     if (!this.Tipo_doc ||
@@ -64,6 +90,7 @@ export class InfoPage implements OnInit {
       console.error('Los PIN no coinciden.');
       return;
     }
+    this.recuperarNumeroDocumento();
     const datos = {
       Tipo_doc: this.Tipo_doc,
       numero_doc: this.numero_doc,
@@ -71,7 +98,8 @@ export class InfoPage implements OnInit {
       fecha_nacimiento: this.fecha_nacimiento,
       genero: this.genero,
       email: this.email,
-      PIN: this.PIN
+      PIN: this.PIN,
+      número_celular: this.numero_cel,
     };
     console.log(datos);
   }

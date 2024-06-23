@@ -25,6 +25,14 @@ export class NumeroCelPage implements OnInit {
     this.input = this.input.slice(0, -1);
   }
 
+  formatNumber(input: string): string {
+    if (input.length <= 3) {
+      return input;
+    } else {
+      return `${input.slice(0, 3)} - ${input.slice(3)}`;
+    }
+  }
+
   confirmNumber() {
     if (!this.input){
       console.log('No se ha ingresado ningun numero');
@@ -34,6 +42,7 @@ export class NumeroCelPage implements OnInit {
       return;
     }
     console.log('Número ingresado:', this.input);
+    localStorage.setItem('inputNumber', this.input);
     this.router.navigate(['./info'])
   }
 
@@ -41,11 +50,4 @@ export class NumeroCelPage implements OnInit {
     this.router.navigate(['./ingreso'])
   }
 
-  formatNumber(input: string): string {
-    if (input.length <= 3) {
-      return input;
-    } else {
-      return `${input.slice(0, 3)} - ${input.slice(3)}`;
-    }
-  }
 }

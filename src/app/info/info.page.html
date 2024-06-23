@@ -19,10 +19,15 @@
     <div>
       <h4>Documento de identidad</h4>
       <ion-item>
-        <ion-select label="Tipo Documento" label-placement="floating" [(ngModel)]="Tipo_doc">
+        <!-- <ion-select label="Tipo Documento" label-placement="floating" [(ngModel)]="Tipo_doc">
           <ion-select-option value="TI">Tarjeta de Identidad</ion-select-option>
           <ion-select-option value="CC">Cédula de Ciudadanía</ion-select-option>
           <ion-select-option value="CE">Cédula de Extranjería</ion-select-option>
+        </ion-select> -->
+        <ion-select label="Tipo Documento" label-placement="floating" [(ngModel)]="Tipo_doc">
+          <ion-select-option *ngFor="let e of lista_tipos_docs" [value]="e.notation">
+            {{e.description}}
+          </ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
@@ -56,16 +61,13 @@
       <ion-label class="error" *ngIf="error_confir_email">Este campo no coincide con el correo</ion-label>
       <ion-item>
         <ion-label position="floating">PIN de seguridad</ion-label>
-        <ion-input type="number" [(ngModel)]="PIN"></ion-input>
-        <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+        <ion-input type="password" [(ngModel)]="PIN"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="floating">Confirmar PIN de seguridad</ion-label>
-        <ion-input type="number" [(ngModel)]="confir_PIN"></ion-input>
-        <ion-input-password-toggle color="dark" slot="end"></ion-input-password-toggle>
+        <ion-input type="password" [(ngModel)]="confir_PIN"></ion-input>
       </ion-item>
       <ion-label class="error" *ngIf="error_confir_PIN">Este campo no coincide con el PIN</ion-label>
-
       <div id="boton">
         <ion-button (click)="enviarDatos()">SIGUIENTE</ion-button>
       </div>
