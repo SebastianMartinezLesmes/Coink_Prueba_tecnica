@@ -23,6 +23,11 @@
           <ion-select-option *ngFor="let e of lista_tipos_docs" [value]="e.notation">
             {{e.description}}
           </ion-select-option>
+          <!-- <ion-select label="Tipo Documento" label-placement="floating" [(ngModel)]="Tipo_doc">
+            <ion-select-option value="TI">Tarjeta de Identidad</ion-select-option>
+            <ion-select-option value="CC">Cédula de Ciudadanía</ion-select-option>
+            <ion-select-option value="CE">Cédula de Extranjería</ion-select-option>
+          </ion-select> -->
         </ion-select>
       </ion-item>
       <ion-item>
