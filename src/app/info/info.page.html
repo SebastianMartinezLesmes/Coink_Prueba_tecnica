@@ -19,7 +19,8 @@
     <div id="formulario">
       <h4>Documento de identidad</h4>
       <ion-item>
-        <ion-select label="Tipo Documento" label-placement="floating" [(ngModel)]="Tipo_doc">
+        <ion-label position="floating">Tipo Documento</ion-label>
+        <ion-select label-placement="floating" [(ngModel)]="Tipo_doc">
           <ion-select-option *ngFor="let e of lista_tipos_docs" [value]="e.notation">
             {{e.description}}
           </ion-select-option>
@@ -43,7 +44,8 @@
         <ion-input type="date" [(ngModel)]="fecha_nacimiento"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-select label="Género" label-placement="floating" [(ngModel)]="genero">
+        <ion-label position="floating">Género</ion-label>
+        <ion-select label-placement="floating" [(ngModel)]="genero">
           <ion-select-option value="femenino">Femenino</ion-select-option>
           <ion-select-option value="masculino">Masculino</ion-select-option>
         </ion-select>

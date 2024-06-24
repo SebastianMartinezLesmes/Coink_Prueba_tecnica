@@ -1,97 +1,103 @@
 #header_page4 {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    ion-icon {
-      color: #1EEA00;
-      margin-right: 10px;
-      font-size: 6vw;
-    }
-    div {
-      flex: 1;
-      text-align: center;
-      h1 {
-        color: #004B40;
-        font-weight: bold;
-        margin: 0;
-        font-size: 4vw;
-      }
-      img {
-        height: 20px;
-        margin-top: 10px;
-      }
-    }
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  ion-icon {
+    color: #1EEA00;
+    margin-right: 10px;
+    font-size: 6vw;
   }
-  
-  #page4 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  #arriba {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    img {
-      width: 20%;
-      margin-right: 10px;
-    }
-    div {
-      flex: 1;
-      text-align: left;
-      h4, h3 {
-        margin: 0;
-        font-size: 4vw;
-      }
-      h4 {
-        color: #004B40;
-        font-weight: bold;
-      }
-    }
-  }
-  
-  #line {
-    height: 2px;
-    width: 100%;
-    background: #1EEA00;
-    margin: 20px 0;
-  }
-  
-  #formulario {
-    width: 100%;
-    ion-item {
-      --inner-padding-end: 0;
-      ion-label {
-        font-size: 4vw;
-      }
-      ion-input {
-        font-size: 4vw;
-      }
-      ion-select {
-        font-size: 4vw;
-      }
-    }
-  }
-  
-  .error {
-    color: red;
-    margin-left: 16px;
-  }
-  
-  #boton {
-    width: 100%;
+  div {
+    flex: 1;
     text-align: center;
-    ion-button {
-      --width: 85%;
-      height: auto;
-      font-size: 4vw;
-      font-weight: bold;
-      --border-radius: 30px;
-      --background: #1EEA00;
+    h1 {
       color: #004B40;
-      margin-top: 5%;
+      font-weight: bold;
+      margin: 0;
+      font-size: 4vw;
+    }
+    img {
+      height: 20px;
+      margin-top: 10px;
     }
   }
-  
+}
+
+#page4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+#arriba {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  img {
+    width: 20%;
+    margin-right: 10px;
+  }
+  div {
+    flex: 1;
+    text-align: left;
+    h4, h3 {
+      margin: 0;
+      font-size: 4vw;
+    }
+    h4 {
+      color: #004B40;
+      font-weight: bold;
+    }
+  }
+}
+
+#line {
+  height: 2px;
+  width: 100%;
+  background: #1EEA00;
+  margin: 20px 0;
+}
+
+#formulario {
+  width: 100%;
+  ion-item {
+    --inner-padding-end: 0;
+    ion-label {
+      font-size: 4vw;
+    }
+    ion-input {
+      font-size: 4vw;
+    }
+    ion-select {
+      font-size: 4vw;
+    }
+  }
+}
+
+.error {
+  color: red;
+  margin-left: 16px;
+}
+
+#boton {
+  width: 100%;
+  text-align: center;
+  ion-button {
+    --width: 85%;
+    height: auto;
+    font-size: 4vw;
+    font-weight: bold;
+    --border-radius: 30px;
+    --background: #1EEA00;
+    color: #004B40;
+    margin-top: 5%;
+  }
+}
+
+h4 {
+  margin: 0;
+  font-size: 4vw;
+  color: #004B40;
+  font-weight: bold;
+}
